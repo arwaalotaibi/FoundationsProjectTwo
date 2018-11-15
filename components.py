@@ -22,8 +22,8 @@ class Store():
         print("%s:" % self.name)
         
         for x in self.products :
-          print(x)
-          print()
+          print(x,"\n")
+          
           
 
 
@@ -85,5 +85,5 @@ class Cart():
         if  y.lower() == "no" :
            print("Your order has been cancelled")
         elif y.lower() == "yes" :
-           self.cart = []
+           
            print("Your order has been placed")

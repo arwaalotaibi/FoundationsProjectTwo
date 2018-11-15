@@ -2,7 +2,7 @@
 from data import stores
 from components import Cart
 
-site_name = "www.a.com"  # Give your site a name
+site_name = "www.a.com"  
 
 def welcome():
     print("Welcome to %s\nFeel free to shop throughout the stores we have, and only checkout once!" % site_name)
@@ -45,11 +45,11 @@ def pick_products(cart, picked_store):
     """
     prints list of products and prompts user to add products to card.
     """
-    # print list of product
-    pr = ""
-    pr = input("Pick the items you'd like to add in your cart by typing the product name exactly as it was spelled above type \"back\" to go back to the main menu where you can checkout\n" )
+    picked_store.print_products()
    
-    while pr.lower() != "back":
+    pr = input("Pick the items you'd like to add in your cart by typing the product name exactly as it was spelled above type \"back\" to go back to the main menu or \"checkout\" to pay your bills \n" )
+   
+    while pr.lower() != "back" and pr.lower() != "checkout"  :
         for product in picked_store.products:
             if pr.lower() == product.name.lower():
                 cart.add_to_cart(product)
@@ -68,7 +68,7 @@ def shop():
         picked_store = pick_store()
         if picked_store == "checkout":
             break
-        picked_store.print_products()
+     
         pr = pick_products(cart, picked_store)
 
     cart.checkout()
